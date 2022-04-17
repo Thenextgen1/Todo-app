@@ -1,5 +1,4 @@
 :root {
-
   /* primary */
 
   --brightBlue: hsl(220, 98%, 61%);
@@ -24,3 +23,7 @@
 /* .ff {
   background: url(./assets/images/bg-desktop-dark.jpg)
 } */
+
+body {
+  background: var(--veryDarkBlue);
+}

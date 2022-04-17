@@ -20,7 +20,7 @@ const Header = () => {
         lightmode: true,
     })
     const style = {
-        backgroundImage: `url(${background.desktop})`
+        backgroundImage: "images"
     }
 
     const setTheme = () => {
@@ -32,13 +32,13 @@ const Header = () => {
             }
         })
     }
-    background.lightmode ? style.backgroundImage = `url(${lightbackgrounddesktop})` : style.backgroundImage = `url(${darkbackgrounddesktop})`
+    background.lightmode ? style.backgroundImage = `url(${darkbackgrounddesktop})` : style.backgroundImage = `url(${lightbackgrounddesktop})`
 
 
     return (
         <StyledHeader className="flex justify-between bg-no-repeat" style={style}>
             <h1 className='relative text-3xl font-bold text-white'>TODO</h1>
-            <img className='relative' src={background.lightmode ? moon : sun} alt="selected mode" onClick={setTheme} />
+            <img className='relative' src={background.lightmode ? sun : moon} alt="selected mode" onClick={setTheme} />
         </StyledHeader>
     )
 }
