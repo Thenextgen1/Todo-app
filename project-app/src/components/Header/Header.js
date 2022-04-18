@@ -11,6 +11,11 @@ import './Header.css'
 const StyledHeader = styled.header`
 padding: 4.5em 0 1em 0;
 height: 250px;
+
+
+@media(max-width: 540px) {
+    padding: 4.5em 1.5em 1em 1.5em;
+}
 `
 
 

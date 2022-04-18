@@ -1,5 +1,5 @@
 import './App.css';
-import Todo from './components/Todo/Todo'
+import Todos from './components/Todos/Todos'
 import Header from './components/Header/Header'
 
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Todo />
+      <Todos />
 
     </div>
   );
