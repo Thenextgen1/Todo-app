@@ -43,6 +43,7 @@ const AddTodo = (props) => {
                     onChange={handleChange}
                     placeholder="Create a new todo..."
                     value={formData.content}
+                    autoComplete="off"
                 />
             </form>
         </div>

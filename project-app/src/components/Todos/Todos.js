@@ -59,8 +59,15 @@ const Todos = () => {
     }
 
 
+    function deleteTodo(id) {
+        const todos1 = todos.filter(todo => {
+            if (todo.id !== id) {
+                return todo
+            }
+        })
 
-
+        return setTodos(todos1)
+    }
 
 
 
@@ -70,6 +77,7 @@ const Todos = () => {
                 key={datum.id}
                 num={datum.id}
                 content={datum.content}
+                deleteTodo={deleteTodo}
             />
         )
     })
@@ -80,7 +88,7 @@ const Todos = () => {
 
 
     return (
-        <StyledSection className="flex-column justify-center relative">
+        <StyledSection className="flex-column justify-center relative rounded-md">
             <AddTodo addTodo={addTodo} />
             {todoList}
         </StyledSection>

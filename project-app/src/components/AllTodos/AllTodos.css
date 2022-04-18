@@ -6,15 +6,33 @@
     --darkGrayishBlue: hsl(234, 11%, 52%);
     --veryDarkGrayishBlue: hsl(233, 14%, 35%);
     --veryDarkGrayishBlue2: hsl(237, 14%, 26%);
+    --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
 }
 
 
 
 
 
+.cross {
+    opacity: 1;
+}
+
+.cross:hover {
+    opacity: 1;
+}
 
 
+.check {
+    width: 10px;
+    height: 10px;
+    position: relative;
+    top: 20%;
+    left: 18%;
+}
 
+.check:hover {
+    opacity: 1;
+}
 
 
 
@@ -23,15 +41,18 @@
     top: 2em;
     cursor: pointer;
     background: var(--verydarkDesaturatedBlue);
+    border-bottom: 1px solid var(--veryDarkGrayishBlue2);
+    padding-right: 1.5em;
+
 }
 
 .alltodos {
     padding: 1em;
-    border-bottom: 1px solid var(--veryDarkGrayishBlue2);
+
 }
 
 .todo-content {
-
+    margin-left: 1.5em;
     color: var(--lightGrayishBlue);
 }
 
