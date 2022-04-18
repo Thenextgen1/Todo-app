@@ -34,7 +34,7 @@ const AddTodo = (props) => {
 
 
     return (
-        <div className="flex items-center input_todo">
+        <div className="rounded-md flex items-center input_todo">
             <span className="check_container rounded-full"></span>
             <form onSubmit={handleSubmit}>
                 <input

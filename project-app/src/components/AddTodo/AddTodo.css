@@ -1,4 +1,5 @@
 :root {
+    --brightBlue: hsl(220, 98%, 61%);
     --veryDarkBlue: hsl(235, 21%, 11%);
     --verydarkDesaturatedBlue: hsl(235, 24%, 19%);
     --lightGrayishBlue: hsl(234, 39%, 85%);
@@ -22,15 +23,17 @@ span {
 }
 
 input[type="text"] {
-    background: none;
+    background: var(--verydarkDesaturatedBlue);
     outline: none;
     font-size: 1em;
     margin-left: 0.9em;
+    caret-color: var(--brightBlue);
     color: var(--lightGrayishBlue);
 }
 
 input[type="text"]:focus {
-    background: none;
+    caret-color: var(--brightBlue);
+    background: var(--verydarkDesaturatedBlue);
     font-size: 1em;
     color: var(--lightGrayishBlue);
 }

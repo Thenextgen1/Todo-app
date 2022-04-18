@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import check from '../../assets/images/icon-check.svg'
-import cross from '../../assets/images/icon-cross.svg'
 import AllTodos from '../AllTodos/AllTodos'
 import './Todos.css'
 import styled from 'styled-components'
@@ -14,7 +12,7 @@ left: 33%;
 @media(max-width: 1024px) {
     width: 75%;
     left: 8%;
-    padding: 1.5em;
+    padding: 0 1.5em;
 }
 
 @media(max-width: 540px) {
