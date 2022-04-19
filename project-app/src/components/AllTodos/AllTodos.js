@@ -3,7 +3,7 @@ import check from '../../assets/images/icon-check.svg'
 import cross from '../../assets/images/icon-cross.svg'
 import './AllTodos.css'
 
-const AllTodos = ({ content, id, num, deleteTodo }) => {
+const AllTodos = ({ content, id, num, deleteTodo, setState }) => {
 
 
     const [style, setstyle] = useState({
@@ -29,7 +29,19 @@ const AllTodos = ({ content, id, num, deleteTodo }) => {
             }
         })
 
+
     }
+
+    // function completed(setState) {
+    //     setState(prevState => {
+    //         return {
+    //             ...prevState,
+    //             completed: true
+    //         }
+    //     })
+    // }
+
+
     function completeTodo() {
         if (style.isUnchecked) {
             imgStyle.opacity = 0

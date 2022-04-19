@@ -18,6 +18,7 @@ left: 33%;
 @media(max-width: 540px) {
     width: 100%;
     left: 0;
+    margin-bottom: 3em
 }
 
 `
@@ -60,6 +61,7 @@ const Todos = () => {
 
 
     function deleteTodo(id) {
+        // eslint-disable-next-line
         const todos1 = todos.filter(todo => {
             if (todo.id !== id) {
                 return todo
@@ -77,14 +79,38 @@ const Todos = () => {
                 num={datum.id}
                 content={datum.content}
                 deleteTodo={deleteTodo}
+                setState={setTodos}
 
             />
         )
     })
 
 
+    function allTodo() {
+        // eslint-disable-next-line
+        const allTodo = todos.filter(todo => {
+            if (todo.content) {
+                return todo
+            }
+        })
+        return setTodos(allTodo)
+    }
+
+    function activetodo() {
+        const activetodo = todos.filter(todo => {
+            if (todo.content) {
+                return todo
+            }
+
+        })
+        console.log(activetodo)
+    }
 
 
+
+    const allStyle = {
+        color: 'hsl(220, 98%, 61%)'
+    }
 
 
     return (
@@ -93,10 +119,10 @@ const Todos = () => {
             {todoList}
             <footer className="footer relative flex items-center ">
                 <p>{todos.length} items left</p>
-                <ul>
-                    <li>All</li>
-                    <li>Active</li>
-                    <li>Completed</li>
+                <ul className="filtertodo_container">
+                    <li><button style={allStyle} onClick={allTodo}>All</button></li>
+                    <li><button onClick={activetodo}>Active</button></li>
+                    <li><button>Completed</button></li>
                 </ul>
                 <p>Clear Completed</p>
             </footer>
