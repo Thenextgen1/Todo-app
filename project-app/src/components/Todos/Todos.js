@@ -65,7 +65,6 @@ const Todos = () => {
                 return todo
             }
         })
-
         return setTodos(todos1)
     }
 
@@ -78,6 +77,7 @@ const Todos = () => {
                 num={datum.id}
                 content={datum.content}
                 deleteTodo={deleteTodo}
+
             />
         )
     })
