@@ -56,6 +56,10 @@
     color: var(--lightGrayishBlue);
 }
 
+.todo-content:hover {
+    color: var(--lightGrayishBluehover);
+}
+
 @media(max-width: 411px) {
     .todo-content {
         font-size: 0.8em;

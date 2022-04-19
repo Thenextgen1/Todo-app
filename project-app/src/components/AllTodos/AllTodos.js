@@ -61,6 +61,8 @@ const AllTodos = ({ content, id, num, deleteTodo }) => {
 
             </div >
             <img className='cross' src={cross} alt="delete" onClick={() => { deleteTodo(num) }} />
+
+
         </div>
     )
 }

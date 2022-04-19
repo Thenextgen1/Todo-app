@@ -1,0 +1,52 @@
+:root {
+    --veryDarkBlue: hsl(235, 21%, 11%);
+    --verydarkDesaturatedBlue: hsl(235, 24%, 19%);
+    --lightGrayishBlue: hsl(234, 39%, 85%);
+    --lightGrayishBluehover: hsl(236, 33%, 92%);
+    --darkGrayishBlue: hsl(234, 11%, 52%);
+    --veryDarkGrayishBlue: hsl(233, 14%, 35%);
+    --veryDarkGrayishBlue2: hsl(237, 14%, 26%);
+    --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+}
+
+
+
+
+
+
+
+ul li {
+    font-size: 0.9em;
+    display: inline-block;
+    padding-left: 1em;
+
+}
+
+.footer ul {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.footer {
+    top: 2em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    background: var(--verydarkDesaturatedBlue);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.footer p {
+    font-size: 0.8em;
+}
+
+ul li,
+.footer p {
+    color: var(--veryDarkGrayishBlue);
+
+}
+
+.footer p:hover,
+li:hover {
+    color: var(--lightGrayishBluehover);
+}

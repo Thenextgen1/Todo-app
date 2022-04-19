@@ -91,6 +91,15 @@ const Todos = () => {
         <StyledSection className="flex-column justify-center relative rounded-md">
             <AddTodo addTodo={addTodo} />
             {todoList}
+            <footer className="footer relative flex items-center ">
+                <p>{todos.length} items left</p>
+                <ul>
+                    <li>All</li>
+                    <li>Active</li>
+                    <li>Completed</li>
+                </ul>
+                <p>Clear Completed</p>
+            </footer>
         </StyledSection>
     )
 }
