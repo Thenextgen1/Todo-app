@@ -30,24 +30,28 @@ const Todos = () => {
     const [todos, setTodos] = useState([
         {
             id: 1,
-            content: 'Jog around the park 3x'
+            content: 'Jog around the park 3x',
+            completed: false
         },
         {
             id: 2,
-            content: '10 minutes motivation'
-
+            content: '10 minutes motivation',
+            completed: false
         },
         {
             id: 3,
-            content: 'Read for 1 hour'
+            content: 'Read for 1 hour',
+            completed: false
         },
         {
             id: 4,
-            content: 'Pick up groceries'
+            content: 'Pick up groceries',
+            completed: false
         },
         {
             id: 5,
-            content: 'Complete Todo App on Frontend Mentor'
+            content: 'Complete Todo App on Frontend Mentor',
+            completed: false
         }
 
     ])
@@ -71,19 +75,15 @@ const Todos = () => {
     }
 
 
+    function checkcompleteTodo(id) {
+        const checktodos = todos.map(todo =>
 
-    const todoList = todos.map((datum) => {
-        return (
-            <AllTodos
-                key={datum.id}
-                num={datum.id}
-                content={datum.content}
-                deleteTodo={deleteTodo}
-                setState={setTodos}
-
-            />
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
         )
-    })
+        setTodos(checktodos)
+
+    }
+    console.log(todos)
 
 
     function allTodo() {
@@ -96,14 +96,23 @@ const Todos = () => {
         return setTodos(allTodo)
     }
 
-    function activetodo() {
-        const activetodo = todos.filter(todo => {
-            if (todo.content) {
+    function Completedtodo() {
+        const completedtodo = todos.filter(todo => {
+            if (todo.completed) {
                 return todo
             }
 
         })
-        console.log(activetodo)
+        setTodos(completedtodo)
+    }
+    function activetodo() {
+        const activetodo = todos.filter(todo => {
+            if (!todo.completed) {
+                return todo
+            }
+
+        })
+        setTodos(activetodo)
     }
 
 
@@ -111,6 +120,22 @@ const Todos = () => {
     const allStyle = {
         color: 'hsl(220, 98%, 61%)'
     }
+
+    const todoList = todos.map((datum) => {
+        return (
+            <AllTodos
+                key={datum.id}
+                num={datum.id}
+                content={datum.content}
+                deleteTodo={deleteTodo}
+                checkcompleteTodo={checkcompleteTodo}
+                todos={todos}
+
+            />
+        )
+    })
+
+
 
 
     return (
@@ -122,7 +147,7 @@ const Todos = () => {
                 <ul className="filtertodo_container">
                     <li><button style={allStyle} onClick={allTodo}>All</button></li>
                     <li><button onClick={activetodo}>Active</button></li>
-                    <li><button>Completed</button></li>
+                    <li><button onClick={Completedtodo}>Completed</button></li>
                 </ul>
                 <p>Clear Completed</p>
             </footer>

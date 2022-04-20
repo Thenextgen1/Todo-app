@@ -3,7 +3,7 @@ import check from '../../assets/images/icon-check.svg'
 import cross from '../../assets/images/icon-cross.svg'
 import './AllTodos.css'
 
-const AllTodos = ({ content, id, num, deleteTodo, setState }) => {
+const AllTodos = ({ content, id, num, deleteTodo, checkcompleteTodo, todos }) => {
 
 
     const [style, setstyle] = useState({
@@ -29,17 +29,10 @@ const AllTodos = ({ content, id, num, deleteTodo, setState }) => {
             }
         })
 
-
     }
 
-    // function completed(setState) {
-    //     setState(prevState => {
-    //         return {
-    //             ...prevState,
-    //             completed: true
-    //         }
-    //     })
-    // }
+
+
 
 
     function completeTodo() {
@@ -63,7 +56,7 @@ const AllTodos = ({ content, id, num, deleteTodo, setState }) => {
 
             <div className=' alltodos relative items-center flex '>
                 <span className='rounded-full check-container' onClick={checkTodo} style={backgroundStyle}>
-                    <img className='check' src={check} alt="check" style={imgStyle} />
+                    <img className='check' src={check} alt="check" style={imgStyle} onClick={() => { checkcompleteTodo(num) }} />
                 </span>
 
                 {
