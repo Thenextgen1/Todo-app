@@ -80,47 +80,123 @@ const Todos = () => {
 
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
         )
-        setTodos(checktodos)
-
-    }
-    console.log(todos)
-
-
-    function allTodo() {
-        // eslint-disable-next-line
-        const allTodo = todos.filter(todo => {
-            if (todo.content) {
-                return todo
-            }
-        })
-        return setTodos(allTodo)
-    }
-
-    function Completedtodo() {
-        const completedtodo = todos.filter(todo => {
+        const completedtodo = checktodos.filter(todo => {
             if (todo.completed) {
                 return todo
             }
 
         })
-        setTodos(completedtodo)
-    }
-    function activetodo() {
-        const activetodo = todos.filter(todo => {
+        const activetodo = checktodos.filter(todo => {
             if (!todo.completed) {
                 return todo
             }
 
         })
-        setTodos(activetodo)
+
+        sessionStorage.setItem('completedtodo', JSON.stringify(completedtodo));
+        sessionStorage.setItem('activetodo', JSON.stringify(activetodo));
+        setTodos(checktodos)
+    }
+
+    function Completedtodo() {
+
+
+
+        const getCompletedtodo = sessionStorage.getItem('completedtodo')
+        const finalCompletedtodo = JSON.parse(getCompletedtodo)
+
+        setTodos(finalCompletedtodo)
+        // todos.forEach((elem) => {
+        //     if (elem.completed) {
+        setcompletedstyles(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(220, 98%, 61%)'
+            }
+        })
+        setactivestyle(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+        setallStyle(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+
     }
 
 
 
-    const allStyle = {
+    function activetodo() {
+        setactivestyle(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(220, 98%, 61%)'
+            }
+        })
+        setallStyle(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+        setcompletedstyles(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+        const getActivetodo = sessionStorage.getItem('activetodo')
+        const finalActivetodo = JSON.parse(getActivetodo)
+        if (finalActivetodo === null) {
+            setTodos(todos)
+        }
+        else {
+            setTodos(finalActivetodo)
+        }
+    }
+
+    function alltodos() {
+        setallStyle(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(220, 98%, 61%)'
+            }
+        })
+        setactivestyle(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+        setcompletedstyles(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+
+
+        const getallactivetodo = JSON.parse(sessionStorage.getItem('activetodo'))
+        const getallCompletetedtodo = JSON.parse(sessionStorage.getItem('completedtodo'))
+
+        const alltodos = [].concat(getallactivetodo, getallCompletetedtodo)
+        setTodos(alltodos)
+    }
+
+    const [allStyle, setallStyle] = useState({
         color: 'hsl(220, 98%, 61%)'
-    }
-
+    })
+    const [completedstyles, setcompletedstyles] = useState({
+        color: 'hsl(234, 11%, 52%)'
+    })
+    const [activeStyle, setactivestyle] = useState({
+        color: 'hsl(234, 11%, 52%)'
+    })
     const todoList = todos.map((datum) => {
         return (
             <AllTodos
@@ -145,9 +221,15 @@ const Todos = () => {
             <footer className="footer relative flex items-center ">
                 <p>{todos.length} items left</p>
                 <ul className="filtertodo_container">
-                    <li><button style={allStyle} onClick={allTodo}>All</button></li>
-                    <li><button onClick={activetodo}>Active</button></li>
-                    <li><button onClick={Completedtodo}>Completed</button></li>
+                    <li><button style={allStyle}
+                        onClick={alltodos}
+                    >
+                        All</button></li>
+                    <li><button onClick={activetodo} style={activeStyle}>Active</button></li>
+                    <li><button
+                        onClick={Completedtodo}
+                        style={completedstyles}
+                    >Completed </button></li>
                 </ul>
                 <p>Clear Completed</p>
             </footer>

@@ -77,3 +77,9 @@ button:active {
         left: 25%;
     }
 }
+
+@media(max-width: 370px) {
+    .filtertodo_container li {
+        left: 15%;
+    }
+}
