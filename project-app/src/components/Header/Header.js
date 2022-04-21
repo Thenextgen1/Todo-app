@@ -23,6 +23,10 @@ height: 250px;
 const Header = () => {
     const [background, setBackground] = useState({
         lightmode: true,
+        darkdesktop: darkbackgrounddesktop,
+        darkmobile: darkbackgroundmobile,
+        lightdesktop: lightbackgrounddesktop,
+        lightmobile: lightbackgroundmobile
     })
     const style = {
         backgroundImage: "images"
@@ -36,14 +40,47 @@ const Header = () => {
                 lightmode: !background.lightmode,
             }
         })
-    }
-    background.lightmode ? style.backgroundImage = `url(${darkbackgrounddesktop})` : style.backgroundImage = `url(${lightbackgrounddesktop})`
 
+
+
+    }
+
+    function switchmodes() {
+        if (background.lightmode) {
+            style.backgroundImage = `url(${background.darkdesktop})`
+        }
+        else {
+            style.backgroundImage = `url(${background.lightdesktop})`
+        }
+    }
+    switchmodes();
+
+    // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    //     const newColorScheme = event.matches ? "dark" : "light";
+    // });
+
+
+    function resize() {
+
+        const setbackgroundimg = window.matchMedia('(max-width: 414px)')
+        setbackgroundimg.addEventListener('change', () => {
+            if (setbackgroundimg.matches) {
+                background.lightmode ? style.backgroundImage = `url(${background.darkmobile})` : style.backgroundImage = `url(${background.lightmobile})`
+            }
+            else {
+                background.lightmode ? style.backgroundImage = `url(${background.darkdesktop})` : style.backgroundImage = `url(${background.lightdesktop})`
+
+            }
+        })
+
+    }
+
+    resize();
 
     return (
         <StyledHeader className="flex justify-between bg-no-repeat" style={style}>
             <h1 className='relative text-3xl font-bold text-white'>TODO</h1>
-            <img className='relative' src={background.lightmode ? sun : moon} alt="selected mode" onClick={setTheme} />
+            <img className='relative toogle-mode cursor-pointer' src={background.lightmode ? sun : moon} alt="selected mode" onClick={setTheme} />
         </StyledHeader>
     )
 }

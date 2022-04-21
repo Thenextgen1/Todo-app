@@ -1,17 +1,15 @@
 :root {
-    --veryDarkBlue: hsl(235, 21%, 11%);
     --verydarkDesaturatedBlue: hsl(235, 24%, 19%);
-    --lightGrayishBlue: hsl(234, 39%, 85%);
+    --lightGrayishBlue1: hsl(234, 39%, 85%);
     --lightGrayishBluehover: hsl(236, 33%, 92%);
-    --darkGrayishBlue: hsl(234, 11%, 52%);
-    --veryDarkGrayishBlue: hsl(233, 14%, 35%);
     --veryDarkGrayishBlue2: hsl(237, 14%, 26%);
-    --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    /* light mode */
+    --veryLightGray: hsl(0, 0%, 98%);
+    --veryLightGrayishBlue: hsl(236, 33%, 92%);
+    --lightGrayishBlue2: hsl(233, 11%, 84%);
+    --darkGrayishBlue2: hsl(236, 9%, 61%);
+    --veryDarkgrayishblue: hsl(235, 19%, 35%);
 }
-
-
-
-
 
 .cross {
     opacity: 1;
@@ -63,5 +61,39 @@
 @media(max-width: 411px) {
     .todo-content {
         font-size: 0.8em;
+    }
+}
+
+@media(prefers-color-scheme: light) {
+    .alltodos_container {
+        background: var(--veryLightGray);
+        border-bottom: 1px solid var(--veryLightGrayishBlue);
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .todo-content {
+        color: var(--veryDarkgrayishblue);
+
+    }
+
+    .todo-content:hover {
+        color: var(--darkGrayishBlue2)
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    .alltodos_container {
+        background: var(--verydarkDesaturatedBlue);
+        border-bottom: 1px solid var(--veryDarkGrayishBlue2);
+    }
+
+    .todo-content {
+        color: var(--lightGrayishBlue1);
+    }
+
+    .todo-content:hover {
+        color: var(--lightGrayishBluehover);
     }
 }

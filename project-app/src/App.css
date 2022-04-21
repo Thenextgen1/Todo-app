@@ -1,8 +1,9 @@
-:root {
+body {
   /* primary */
 
   --brightBlue: hsl(220, 98%, 61%);
   --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
   /* light theme */
   --veryLightGray: hsl(0, 0%, 98%);
   --veryLightGrayishBlue: hsl(236, 33%, 92%);
@@ -20,10 +21,23 @@
   --veryDarkGrayishBlue2: hsl(237, 14%, 26%);
 }
 
+
+@media(prefers-color-scheme: dark) {}
+
 /* .ff {
   background: url(./assets/images/bg-desktop-dark.jpg)
 } */
 
-body {
-  background: var(--veryDarkBlue);
+
+
+@media(prefers-color-scheme: dark) {
+  body {
+    background: var(--veryDarkBlue);
+  }
+}
+
+@media(prefers-color-scheme: light) {
+  body {
+    background: var(--veryLightGray);
+  }
 }

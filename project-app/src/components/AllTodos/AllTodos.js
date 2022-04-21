@@ -17,7 +17,8 @@ const AllTodos = ({ content, id, num, deleteTodo, checkcompleteTodo, todos }) =>
     }
     const contentStyle = {
         textDecoration: 'none',
-        color: 'hsl(234, 39%, 85%)',
+        color: '',
+        opacity: 1
 
     }
 
@@ -40,13 +41,13 @@ const AllTodos = ({ content, id, num, deleteTodo, checkcompleteTodo, todos }) =>
             imgStyle.opacity = 0
             backgroundStyle.background = ''
             contentStyle.textDecoration = 'none'
-            contentStyle.color = 'hsl(234, 39%, 85%)'
         }
         else {
             imgStyle.opacity = 1
             backgroundStyle.background = 'linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))'
             contentStyle.textDecoration = 'line-through'
             contentStyle.color = ' hsl(233, 14%, 35%)'
+            contentStyle.opacity = 0.5
         }
     }
     completeTodo();

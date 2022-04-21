@@ -100,56 +100,28 @@ const Todos = () => {
 
     function Completedtodo() {
 
+        activestatestyle(setcompletedstyles, setactivestyle, setallStyle)
 
 
         const getCompletedtodo = sessionStorage.getItem('completedtodo')
         const finalCompletedtodo = JSON.parse(getCompletedtodo)
 
-        setTodos(finalCompletedtodo)
-        // todos.forEach((elem) => {
-        //     if (elem.completed) {
-        setcompletedstyles(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(220, 98%, 61%)'
-            }
-        })
-        setactivestyle(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(234, 11%, 52%)'
-            }
-        })
-        setallStyle(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(234, 11%, 52%)'
-            }
-        })
+        if (finalCompletedtodo === null) {
+            setTodos(todos)
+        }
+        else {
+            setTodos(finalCompletedtodo)
+        }
 
     }
 
 
 
     function activetodo() {
-        setactivestyle(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(220, 98%, 61%)'
-            }
-        })
-        setallStyle(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(234, 11%, 52%)'
-            }
-        })
-        setcompletedstyles(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(234, 11%, 52%)'
-            }
-        })
+
+        activestatestyle(setactivestyle, setallStyle, setcompletedstyles)
+
+
         const getActivetodo = sessionStorage.getItem('activetodo')
         const finalActivetodo = JSON.parse(getActivetodo)
         if (finalActivetodo === null) {
@@ -161,32 +133,54 @@ const Todos = () => {
     }
 
     function alltodos() {
-        setallStyle(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(220, 98%, 61%)'
-            }
-        })
-        setactivestyle(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(234, 11%, 52%)'
-            }
-        })
-        setcompletedstyles(prevStyle => {
-            return {
-                ...prevStyle,
-                color: 'hsl(234, 11%, 52%)'
-            }
-        })
 
+        activestatestyle(setallStyle, setactivestyle, setcompletedstyles)
 
         const getallactivetodo = JSON.parse(sessionStorage.getItem('activetodo'))
         const getallCompletetedtodo = JSON.parse(sessionStorage.getItem('completedtodo'))
 
         const alltodos = [].concat(getallactivetodo, getallCompletetedtodo)
-        setTodos(alltodos)
+        if (alltodos.includes(null) === true) {
+            const allnewtodos = alltodos.filter((elem) => {
+                return elem !== null
+            })
+            setTodos(allnewtodos)
+        }
+        else {
+            setTodos(alltodos)
+        }
     }
+
+
+
+    function clearcompleted() {
+        sessionStorage.removeItem('completedtodo')
+    }
+
+
+
+    function activestatestyle(mainstyle, otherstyle1, otherstyle2) {
+        mainstyle(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(220, 98%, 61%)'
+            }
+        })
+        otherstyle1(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+        otherstyle2(prevStyle => {
+            return {
+                ...prevStyle,
+                color: 'hsl(234, 11%, 52%)'
+            }
+        })
+    }
+
+
 
     const [allStyle, setallStyle] = useState({
         color: 'hsl(220, 98%, 61%)'
@@ -231,7 +225,7 @@ const Todos = () => {
                         style={completedstyles}
                     >Completed </button></li>
                 </ul>
-                <p>Clear Completed</p>
+                <button onClick={clearcompleted}>Clear completed</button>
             </footer>
         </StyledSection>
     )
