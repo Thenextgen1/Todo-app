@@ -1,0 +1,115 @@
+ul li {
+    font-size: 0.9em;
+    display: inline-block;
+    padding-left: 1em;
+
+}
+
+.footer ul {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.footer {
+    top: 2em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.footer p {
+    font-size: 0.8em;
+}
+
+
+
+button:active {
+    color: hsl(220, 98%, 61%);
+}
+
+@media(min-width: 601px) and (max-width: 642px) {
+    .footer ul {
+        margin-right: 0.8em;
+    }
+
+    .footer ul li,
+    .footer button {
+        font-size: 0.9em;
+    }
+
+}
+
+
+@media(min-width: 541px) and (max-width: 600px) {
+    .footer ul {
+        margin: 0;
+        margin-right: 0.7em;
+    }
+
+    .footer ul li,
+    .footer button {
+        font-size: 0.9em;
+    }
+
+    .footer {
+        padding: 0.5em;
+    }
+
+
+
+}
+
+@media(max-width: 461px) {
+    .footer {
+        justify-content: space-between;
+        padding: 1em;
+    }
+
+    .filtertodo_container {
+        position: absolute;
+        top: 5em;
+        width: 100%;
+        left: -1.5em;
+        padding: 0.5em;
+        border-radius: 5px;
+    }
+
+    .filtertodo_container li {
+        position: relative;
+        left: 25%;
+    }
+}
+
+@media(max-width: 370px) {
+    .filtertodo_container li {
+        left: 15%;
+    }
+}
+
+
+
+
+.footer {
+    background: var(--footer);
+
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+ul li,
+.footer p,
+.footer button {
+    color: var(--footer-alltext-color)
+}
+
+li:hover,
+.footer p:hover,
+.footer button:hover {
+    color: var(--footer-alltext-color-hover);
+}
+
+.filtertodo_container {
+    color: var(--filtertodo-container);
+}

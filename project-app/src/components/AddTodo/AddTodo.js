@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import './AddTodo.css'
-
-
-
+import '../../styles/AddTodo.css'
 
 const AddTodo = (props) => {
 
+
+    // set initial form data content
     const [formData, setformData] = useState({
         content: ""
     })
 
-
+    // controlled form to check for changes, implementation using names and values
     function handleChange(event) {
         const { name, value } = event.target
         setformData(prevFormData => {
@@ -20,6 +19,8 @@ const AddTodo = (props) => {
             }
         })
     }
+
+    // submit form
 
     function handleSubmit(event) {
         event.preventDefault();

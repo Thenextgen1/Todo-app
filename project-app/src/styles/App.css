@@ -1,0 +1,70 @@
+body {
+  /* primary */
+
+  --brightBlue: hsl(220, 98%, 61%);
+  --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  /* light theme */
+  --veryLightGray: hsl(0, 0%, 98%);
+  --veryLightGrayishBlue: hsl(236, 33%, 92%);
+  --lightGrayishBlue: hsl(233, 11%, 84%);
+  --darkGrayishBlue: hsl(236, 9%, 61%);
+  --veryDarkgrayishblue: hsl(235, 19%, 35%);
+  /* dark theme
+    */
+  --veryDarkBlue: hsl(235, 21%, 11%);
+  --verydarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --lightGrayishBlue: hsl(234, 39%, 85%);
+  --lightGrayishBluehover: hsl(236, 33%, 92%);
+  --darkGrayishBlue: hsl(234, 11%, 52%);
+  --veryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --veryDarkGrayishBlue2: hsl(237, 14%, 26%);
+}
+
+
+.theme-light {
+  /* add todos */
+  --body-background: hsl(0, 0%, 98%);
+  --span: hsl(236, 33%, 92%);
+  --input-background: hsl(0, 0%, 98%);
+  --input-color: hsl(235, 19%, 35%);
+  --input-placeholder: hsl(234, 11%, 52%);
+  /* all todos */
+  --todos-container: hsl(0, 0%, 98%);
+  --todos-container-border: hsl(236, 33%, 92%);
+  --todo-content: hsl(235, 19%, 35%);
+  --todo-content-hover: hsl(236, 9%, 61%);
+  /* todos */
+  --footer: hsl(0, 0%, 98%);
+  --footer-alltext-color: hsl(236, 9%, 61%);
+  --footer-alltext-color-hover: hsl(235, 19%, 35%);
+  --filtertodo-container: hsl(0, 0%, 98%);
+}
+
+.theme-dark {
+  /* add todos */
+  --body-background: hsl(235, 21%, 11%);
+  --span: hsl(233, 14%, 35%);
+  --input-background: hsl(235, 24%, 19%);
+  --input-color: hsl(234, 39%, 85%);
+  --input-placeholder: hsl(234, 11%, 52%);
+  /* all todos */
+  --todos-container: hsl(235, 24%, 19%);
+  --todos-container-border: hsl(237, 14%, 26%);
+  --todo-content: hsl(234, 39%, 85%);
+  --todo-content-hover: hsl(236, 33%, 92%);
+
+  /* todos */
+  --footer: hsl(235, 24%, 19%);
+  --footer-alltext-color: hsl(234, 11%, 52%);
+  --footer-alltext-color-hover: hsl(236, 33%, 92%);
+  --filtertodo-container: hsl(235, 24%, 19%);
+}
+
+
+
+
+
+body {
+  background: var(--body-background);
+}

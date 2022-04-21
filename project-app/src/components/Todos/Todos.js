@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AllTodos from '../AllTodos/AllTodos'
-import './Todos.css'
+import '../../styles/Todos.css'
 import styled from 'styled-components'
 import AddTodo from '../AddTodo/AddTodo'
 
@@ -26,6 +26,7 @@ left: 33%;
 
 const Todos = () => {
 
+    // todo initial content
 
     const [todos, setTodos] = useState([
         {
@@ -56,6 +57,8 @@ const Todos = () => {
 
     ])
 
+    // generating a random if when new todos are added
+
 
     function addTodo(todo) {
         todo.id = Math.random()
@@ -63,6 +66,8 @@ const Todos = () => {
         setTodos(newTodos)
     }
 
+
+    // deleteTodo when the x cross is clicked
 
     function deleteTodo(id) {
         // eslint-disable-next-line
@@ -75,24 +80,30 @@ const Todos = () => {
     }
 
 
+    // check if any todo has been completed
+
+
     function checkcompleteTodo(id) {
         const checktodos = todos.map(todo =>
 
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
         )
+
+        // search for any changes to the boolean completed value (case completed)
         const completedtodo = checktodos.filter(todo => {
             if (todo.completed) {
                 return todo
             }
 
         })
+        // case uncompleted(thereby active)
         const activetodo = checktodos.filter(todo => {
             if (!todo.completed) {
                 return todo
             }
 
         })
-
+        // saving each completed and active data to session storage
         sessionStorage.setItem('completedtodo', JSON.stringify(completedtodo));
         sessionStorage.setItem('activetodo', JSON.stringify(activetodo));
         setTodos(checktodos)
@@ -100,12 +111,15 @@ const Todos = () => {
 
     function Completedtodo() {
 
+        // changing the color text when clicked
         activestatestyle(setcompletedstyles, setactivestyle, setallStyle)
 
-
+        // getting active and completed data
         const getCompletedtodo = sessionStorage.getItem('completedtodo')
         const finalCompletedtodo = JSON.parse(getCompletedtodo)
 
+
+        // setting a default value to settodos if finalcompleted todo is empty or not empty
         if (finalCompletedtodo === null) {
             setTodos(todos)
         }
@@ -119,9 +133,10 @@ const Todos = () => {
 
     function activetodo() {
 
+        // setting state styles when clicked
         activestatestyle(setactivestyle, setallStyle, setcompletedstyles)
 
-
+        // getting and setting activetodo to main todo as well as checking when empty
         const getActivetodo = sessionStorage.getItem('activetodo')
         const finalActivetodo = JSON.parse(getActivetodo)
         if (finalActivetodo === null) {
@@ -136,16 +151,30 @@ const Todos = () => {
 
         activestatestyle(setallStyle, setactivestyle, setcompletedstyles)
 
+        // getting and merging active and completed todo together
+
+
         const getallactivetodo = JSON.parse(sessionStorage.getItem('activetodo'))
         const getallCompletetedtodo = JSON.parse(sessionStorage.getItem('completedtodo'))
 
         const alltodos = [].concat(getallactivetodo, getallCompletetedtodo)
+
+        // checking whether all todos contains null and returning it without the null value 
+
+        console.log(alltodos)
         if (alltodos.includes(null) === true) {
             const allnewtodos = alltodos.filter((elem) => {
                 return elem !== null
             })
-            setTodos(allnewtodos)
+            if (allnewtodos.length === 0) {
+                setTodos(todos)
+            }
+            else {
+                setTodos(allnewtodos)
+            }
+
         }
+
         else {
             setTodos(alltodos)
         }
@@ -154,6 +183,7 @@ const Todos = () => {
 
 
     function clearcompleted() {
+        // clearing completed todo from memory when clicked
         sessionStorage.removeItem('completedtodo')
     }
 
@@ -191,6 +221,9 @@ const Todos = () => {
     const [activeStyle, setactivestyle] = useState({
         color: 'hsl(234, 11%, 52%)'
     })
+
+    // mapping over the initial todos content
+
     const todoList = todos.map((datum) => {
         return (
             <AllTodos

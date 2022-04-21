@@ -1,0 +1,45 @@
+span {
+    width: 18px;
+    height: 18px;
+    background: none;
+}
+
+.input_todo {
+    padding: 0.5em;
+    padding-left: 1em;
+}
+
+input[type="text"] {
+    outline: none;
+    font-size: 1em;
+    margin-left: 0.9em;
+    caret-color: var(--brightBlue);
+}
+
+input[type="text"]:focus {
+    caret-color: var(--brightBlue);
+    font-size: 1em;
+}
+
+
+
+
+span {
+    border: 1px solid var(--span);
+}
+
+.input_todo {
+    background: var(--input-background);
+}
+
+input[type="text"],
+input[type="text"]:focus {
+    background: var(--input-background);
+    color: var(--input-color);
+}
+
+
+input:placeholder-shown,
+input::placeholder {
+    color: var(--input-placeholder);
+}

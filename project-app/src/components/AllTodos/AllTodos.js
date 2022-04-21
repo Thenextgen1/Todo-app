@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import check from '../../assets/images/icon-check.svg'
 import cross from '../../assets/images/icon-cross.svg'
-import './AllTodos.css'
+import '../../styles/AllTodos.css'
+
+// destructuring props
 
 const AllTodos = ({ content, id, num, deleteTodo, checkcompleteTodo, todos }) => {
 
@@ -32,9 +34,7 @@ const AllTodos = ({ content, id, num, deleteTodo, checkcompleteTodo, todos }) =>
 
     }
 
-
-
-
+    // checking completeTodo
 
     function completeTodo() {
         if (style.isUnchecked) {
@@ -59,6 +59,8 @@ const AllTodos = ({ content, id, num, deleteTodo, checkcompleteTodo, todos }) =>
                 <span className='rounded-full check-container' onClick={checkTodo} style={backgroundStyle}>
                     <img className='check' src={check} alt="check" style={imgStyle} onClick={() => { checkcompleteTodo(num) }} />
                 </span>
+
+                {/* conditional rendering for todo content if its true */}
 
                 {
                     content && < p className="todo-content" style={contentStyle}>{content}</p>
