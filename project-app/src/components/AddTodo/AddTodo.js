@@ -6,7 +6,7 @@ const AddTodo = (props) => {
 
     // set initial form data content
     const [formData, setformData] = useState({
-        content: ""
+        content: "".trim()
     })
 
     // controlled form to check for changes, implementation using names and values
