@@ -56,10 +56,10 @@ const Header = () => {
     // changing themes and adding the theme class
 
     const [togClass, setTogClass] = useState('dark');
-    let theme = localStorage.getItem('theme');
+    let theme = sessionStorage.getItem('theme');
 
     const handleOnClick = () => {
-        if (localStorage.getItem('theme') === 'theme-dark') {
+        if (sessionStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-light');
             setTogClass('light')
         } else {
@@ -69,9 +69,9 @@ const Header = () => {
     }
 
     useEffect(() => {
-        if (localStorage.getItem('theme') === 'theme-dark') {
+        if (sessionStorage.getItem('theme') === 'theme-dark') {
             setTogClass('dark')
-        } else if (localStorage.getItem('theme') === 'theme-light') {
+        } else if (sessionStorage.getItem('theme') === 'theme-light') {
             setTogClass('light')
         }
     }, [theme])
@@ -81,10 +81,10 @@ const Header = () => {
 
     function switchmodes() {
         if (background.lightmode) {
-            style.backgroundImage = `url(${background.lightdesktop})`
+            style.backgroundImage = `url(${background.darkdesktop})`
         }
         else {
-            style.backgroundImage = `url(${background.darkdesktop})`
+            style.backgroundImage = `url(${background.lightdesktop})`
         }
 
     }

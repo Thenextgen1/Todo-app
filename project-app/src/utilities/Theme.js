@@ -1,14 +1,14 @@
 
 function setTheme(themeName) {
-    localStorage.setItem('theme', themeName);
+    sessionStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 }
 
 function keepTheme() {
-    if (localStorage.getItem('theme')) {
-        if (localStorage.getItem('theme') === 'theme-dark') {
+    if (sessionStorage.getItem('theme')) {
+        if (sessionStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-dark');
-        } else if (localStorage.getItem('theme') === 'theme-light') {
+        } else if (sessionStorage.getItem('theme') === 'theme-light') {
             setTheme('theme-light')
         }
     } else {
