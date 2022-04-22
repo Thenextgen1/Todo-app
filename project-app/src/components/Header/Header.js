@@ -18,6 +18,10 @@ height: 250px;
 @media(max-width: 540px) {
     padding: 4.5em 1.5em 1em 1.5em;
 }
+
+@media(max-width: 414px) {
+    padding: 2em 1.5em;
+}
 `
 
 
@@ -81,7 +85,9 @@ const Header = () => {
         else {
             style.backgroundImage = `url(${background.darkdesktop})`
         }
+
     }
+
     switchmodes();
 
 
@@ -90,19 +96,16 @@ const Header = () => {
     function resize() {
 
         const setbackgroundimg = window.matchMedia('(max-width: 414px)')
-        setbackgroundimg.addEventListener('change', () => {
-            if (setbackgroundimg.matches) {
-                background.lightmode ? style.backgroundImage = `url(${background.darkmobile})` : style.backgroundImage = `url(${background.lightmobile})`
-            }
-            else {
-                background.lightmode ? style.backgroundImage = `url(${background.darkdesktop})` : style.backgroundImage = `url(${background.lightdesktop})`
-
-            }
-        })
-
+        if (setbackgroundimg.matches) {
+            background.lightmode ? style.backgroundImage = `url(${background.darkmobile})` : style.backgroundImage = `url(${background.lightmobile})`
+        }
+        else {
+            background.lightmode ? style.backgroundImage = `url(${background.darkdesktop})` : style.backgroundImage = `url(${background.lightdesktop})`
+        }
     }
 
     resize();
+
 
     return (
         <StyledHeader className="flex justify-between bg-no-repeat" style={style}>
