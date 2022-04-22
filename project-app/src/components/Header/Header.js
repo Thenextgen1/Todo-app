@@ -78,17 +78,17 @@ const Header = () => {
 
     // switching background header image depending on dark or light mode
 
-    function switchmodes() {
-        if (background.lightmode) {
-            style.backgroundImage = `url(${background.lightdesktop})`
-        }
-        else {
-            style.backgroundImage = `url(${background.darkdesktop})`
-        }
+    // function switchmodes() {
+    //     if (background.lightmode) {
+    //         style.backgroundImage = `url(${background.darkdesktop})`
+    //     }
+    //     else {
+    //         style.backgroundImage = `url(${background.lightdesktop})`
+    //     }
 
-    }
+    // }
 
-    switchmodes();
+    // switchmodes();
 
 
 
@@ -97,10 +97,10 @@ const Header = () => {
 
         const setbackgroundimg = window.matchMedia('(max-width: 375px)')
         if (setbackgroundimg.matches) {
-            background.lightmode ? style.backgroundImage = `url(${background.darkmobile})` : style.backgroundImage = `url(${background.lightmobile})`
+            background.lightmode ? style.backgroundImage = `url(${background.lightmobile})` : style.backgroundImage = `url(${background.darkmobile})`
         }
         else {
-            background.lightmode ? style.backgroundImage = `url(${background.darkdesktop})` : style.backgroundImage = `url(${background.lightdesktop})`
+            background.lightmode ? style.backgroundImage = `url(${background.lightdesktop})` : style.backgroundImage = `url(${background.darkdesktop})`
         }
     }
 
@@ -111,7 +111,7 @@ const Header = () => {
         <StyledHeader className="flex justify-between bg-no-repeat" style={style}>
             <h1 className='relative text-3xl font-bold text-white'>TODO</h1>
 
-            <img className='relative toogle-mode cursor-pointer' src={background.lightmode ? sun : moon} alt="selected mode" onClick={settheme} />
+            <img className='relative toogle-mode cursor-pointer' src={background.lightmode ? moon : sun} alt="selected mode" onClick={settheme} />
         </StyledHeader>
     )
 }

@@ -15,8 +15,9 @@ function App() {
   return (
     <div className="App">
       <Header id="togglemode" />
-      <Todos />
-
+      <main>
+        <Todos />
+      </main>
     </div>
   );
 }
