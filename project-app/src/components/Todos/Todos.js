@@ -21,7 +21,7 @@ left: 33%;
     margin-bottom: 3em
 }
 @media(max-width: 375px) {
-    top: -9em;
+    top: -7em;
 }
 
 `

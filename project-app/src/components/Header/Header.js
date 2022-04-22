@@ -13,6 +13,7 @@ import { setTheme } from '../../utilities/Theme'
 const StyledHeader = styled.header`
 padding: 4.5em 0 1em 0;
 height: 250px;
+background-size: cover;
 
 
 @media(max-width: 540px) {
@@ -78,33 +79,33 @@ const Header = () => {
 
     // switching background header image depending on dark or light mode
 
-    // function switchmodes() {
-    //     if (background.lightmode) {
-    //         style.backgroundImage = `url(${background.darkdesktop})`
-    //     }
-    //     else {
-    //         style.backgroundImage = `url(${background.lightdesktop})`
-    //     }
+    function switchmodes() {
+        if (background.lightmode) {
+            style.backgroundImage = `url(${background.lightdesktop})`
+        }
+        else {
+            style.backgroundImage = `url(${background.darkdesktop})`
+        }
 
-    // }
+    }
 
-    // switchmodes();
+    switchmodes();
 
 
 
     // switching background header image from desktop to mobile
-    function resize() {
+    // function resize() {
 
-        const setbackgroundimg = window.matchMedia('(max-width: 375px)')
-        if (setbackgroundimg.matches) {
-            background.lightmode ? style.backgroundImage = `url(${background.lightmobile})` : style.backgroundImage = `url(${background.darkmobile})`
-        }
-        else {
-            background.lightmode ? style.backgroundImage = `url(${background.lightdesktop})` : style.backgroundImage = `url(${background.darkdesktop})`
-        }
-    }
+    //     const setbackgroundimg = window.matchMedia('(max-width: 375px)')
+    //     if (setbackgroundimg.matches) {
+    //         background.lightmode ? style.backgroundImage = `url(${background.lightmobile})` : style.backgroundImage = `url(${background.darkmobile})`
+    //     }
+    //     else {
+    //         background.lightmode ? style.backgroundImage = `url(${background.lightdesktop})` : style.backgroundImage = `url(${background.darkdesktop})`
+    //     }
+    // }
 
-    resize();
+    // resize();
 
 
     return (
