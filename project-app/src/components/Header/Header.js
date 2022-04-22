@@ -19,7 +19,7 @@ height: 250px;
     padding: 4.5em 1.5em 1em 1.5em;
 }
 
-@media(max-width: 414px) {
+@media(max-width: 375px) {
     padding: 2em 1.5em;
 }
 `
@@ -95,7 +95,7 @@ const Header = () => {
     // switching background header image from desktop to mobile
     function resize() {
 
-        const setbackgroundimg = window.matchMedia('(max-width: 414px)')
+        const setbackgroundimg = window.matchMedia('(max-width: 375px)')
         if (setbackgroundimg.matches) {
             background.lightmode ? style.backgroundImage = `url(${background.darkmobile})` : style.backgroundImage = `url(${background.lightmobile})`
         }

@@ -20,7 +20,7 @@ left: 33%;
     left: 0;
     margin-bottom: 3em
 }
-@media(max-width: 414px) {
+@media(max-width: 375px) {
     top: -9em;
 }
 
